@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: beat 2s infinite alternate, changeColor 4s infinite alternate;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    left: 25px;
+    top: 0;
+}
+
+@keyframes beat {
+    from {
+        transform: scale(1) rotate(-45deg);
+    }
+    to {
+        transform: scale(1.5) rotate(-45deg);
+    }
+}
+
+@keyframes changeColor {
+    0% { background-color: red; }
+    50% { background-color: blue; }
+    100% { background-color: green; }
+}
